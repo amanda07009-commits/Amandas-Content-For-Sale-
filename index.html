@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amanda Marsh · Content shoots across Southeast Asia</title>
+<meta name="description" content="Photos and vertical clips for cafés, villas, retreats and lifestyle brands across Southeast Asia. Half-day and full content-day shoots, delivered within 72 hours.">
+<!-- Link preview on WhatsApp / Instagram / iMessage.
+     Once the site is on your domain: put a 1200×630 JPG at photos/share.jpg
+     and change og:image to the full address, e.g. https://amandamarsh.com/photos/share.jpg -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Amanda Marsh · Content shoots across Southeast Asia">
+<meta property="og:description" content="Two months of content, shot in a day. Photos and vertical clips for cafés, villas, retreats and lifestyle brands.">
+<meta property="og:image" content="photos/share.jpg">
+<meta name="theme-color" content="#FBF8F4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23DCE3D3'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23A35F68'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,100;1,9..144,300..600,100&family=Karla:wght@400;500;700&display=swap">
+<style>
+/* =====================================================================
+   BRAND TOKENS: the whole look lives here. A relook is a swap of
+   these values; nothing below uses a colour or font directly.
+   ===================================================================== */
+:root {
+  --paper:      #FBF8F4;   /* warm white: the page */
+  --paper-deep: #F4EEE8;   /* alternate sections */
+  --card:       #FFFFFF;   /* package cards, prints */
+  --ink:        #2E2A27;   /* text */
+  --ink-soft:   #6B635C;   /* secondary text */
+  --line:       rgba(46, 42, 39, .14);
+  --sage:       #DCE3D3;   /* pale sage */
+  --sage-ink:   #5F6F56;   /* sage for small text and icons */
+  --blush:      #F4DFDA;   /* powder pink */
+  --rose:       #A35F68;   /* italic accents */
+  --lb-bg:      #1B1816;   /* photo viewer backdrop */
+  --lb-ink:     #F5EFE8;
+
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body:    "Karla", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --radius:    22px;
+  --radius-sm: 14px;
+  --max:       1180px;
+  --grain:     .05;        /* film grain over the page; 0 turns it off */
+
+  color-scheme: light;
+}
+
+/* Placeholder washes, one per category */
+[data-cat="places"] { --ph: linear-gradient(160deg, var(--sage), var(--paper-deep)); }
+[data-cat="food"]   { --ph: linear-gradient(160deg, var(--blush), var(--paper-deep)); }
+[data-cat="villas"] { --ph: linear-gradient(160deg, var(--paper-deep), var(--sage)); }
+[data-cat="people"] { --ph: linear-gradient(160deg, var(--blush), var(--sage)); }
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html.lock { overflow: hidden; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+body::after {                      /* film grain */
+  content: ""; position: fixed; inset: 0; z-index: 70; pointer-events: none;
+  opacity: var(--grain);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img, video { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -.022em;
+  text-wrap: balance;
+  margin: 0;
+}
+h1 em, h2 em { font-style: italic; color: var(--rose); }
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--sage-ink);
+}
+.lede { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--ink-soft); max-width: 34em; margin: 0; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 0 24px; border-radius: 999px;
+  border: 1px solid var(--ink);
+  font: 700 .95rem/1 var(--font-body); letter-spacing: .01em;
+  text-decoration: none; cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease, color .2s ease;
+}
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn-ink  { background: var(--ink); color: var(--paper); }
+.btn-ink:hover { transform: translateY(-2px); }
+.btn-line { background: transparent; color: var(--ink); }
+.btn-line:hover { background: var(--ink); color: var(--paper); }
+.btn-sm { min-height: 40px; padding: 0 18px; font-size: .88rem; }
+
+/* ---------- setup checklist (only while setupMode is on) ---------- */
+.setup { background: var(--blush); font-size: .9rem; }
+.setup details { padding-block: 10px; }
+.setup summary { cursor: pointer; font-weight: 700; }
+.setup summary span { font-weight: 400; color: var(--ink-soft); }
+.setup ul { list-style: none; margin: 10px 0 6px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.setup li::before { content: "○  "; color: var(--rose); }
+.setup li.done { color: var(--ink-soft); text-decoration: line-through; }
+.setup li.done::before { content: "●  "; color: var(--sage-ink); }
+
+/* ---------- header ---------- */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
+  background: var(--paper);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s ease;
+}
+.top.scrolled { border-color: var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 66px; }
+.brand {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: 1.4rem; letter-spacing: -.01em; text-decoration: none; white-space: nowrap;
+}
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav .navlink { color: var(--ink-soft); text-decoration: none; font-size: .95rem; }
+.nav .navlink:hover { color: var(--ink); }
+@media (max-width: 720px) { .nav .navlink { display: none; } }
+
+/* ---------- hero ---------- */
+.hero .wrap {
+  display: grid; grid-template-columns: 1.05fr .95fr; align-items: center;
+  gap: clamp(40px, 6vw, 80px);
+  padding-block: clamp(36px, 6vw, 88px) clamp(56px, 7vw, 96px);
+}
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } }
+.pill {
+  display: inline-flex; align-items: center; gap: 10px; margin: 0;
+  padding: 8px 14px 8px 12px; border-radius: 999px;
+  background: var(--sage); color: var(--sage-ink);
+  font-size: .85rem; font-weight: 700;
+}
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage-ink); animation: pulse 2.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; transform: scale(.8); } }
+.hero h1 {
+  font-size: clamp(2.8rem, 6.6vw, 5.6rem); line-height: .98;
+  margin: 24px 0 22px;
+}
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-meta { display: flex; align-items: center; gap: 10px; margin: 24px 0 0; font-size: .9rem; color: var(--ink-soft); }
+.hero-meta svg { width: 18px; height: 18px; color: var(--rose); flex: none; }
+
+/* the prints: three taped photos, the one bold moment on the page */
+.prints { position: relative; width: 100%; max-width: 540px; aspect-ratio: 1 / 1.05; justify-self: center; }
+.print {
+  position: absolute; margin: 0;
+  background: var(--card); padding: 10px 10px 0; border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(46, 42, 39, .08), 0 22px 44px -20px rgba(46, 42, 39, .4);
+  transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+}
+.print::before {                   /* washi tape */
+  content: ""; position: absolute; top: -13px; left: 50%;
+  width: 88px; height: 26px; transform: translateX(-50%) rotate(-4deg);
+  background: var(--sage); opacity: .85;
+}
+.print:nth-child(2)::before { background: var(--blush); transform: translateX(-50%) rotate(5deg); }
+.print .media { aspect-ratio: 4 / 5; overflow: hidden; background: var(--ph); border-radius: 1px; }
+.print .media img, .print .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.print figcaption {
+  font-family: var(--font-display); font-style: italic; font-size: .95rem;
+  color: var(--ink-soft); padding: 9px 4px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.print:nth-child(1) { width: 54%; left: 0;   top: 7%;  z-index: 2; transform: rotate(-5deg); }
+.print:nth-child(2) { width: 47%; right: 0;  top: 0;   z-index: 1; transform: rotate(4deg); }
+.print:nth-child(3) { width: 45%; left: 36%; bottom: 0; z-index: 3; transform: rotate(-1.5deg); }
+.prints:hover .print:nth-child(1) { transform: rotate(-7deg) translate(-10px, -4px); }
+.prints:hover .print:nth-child(2) { transform: rotate(6deg) translate(10px, -6px); }
+.prints:hover .print:nth-child(3) { transform: rotate(0deg) translate(4px, 8px); }
+.ph-note {
+  height: 100%; display: flex; align-items: flex-end; padding: 12px;
+  font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
+}
+
+/* ---------- route marquee ---------- */
+.route { background: var(--sage); border-block: 1px solid var(--line); overflow: hidden; }
+.route-track { display: flex; width: max-content; animation: marquee 60s linear infinite; }
+.route:hover .route-track { animation-play-state: paused; }
+.route ul { display: flex; margin: 0; padding: 18px 0; list-style: none; }
+.route li {
+  display: flex; align-items: center; gap: 10px; padding-inline: 18px;
+  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-size: clamp(1.35rem, 2.6vw, 2rem); line-height: 1.2; white-space: nowrap;
+}
+.route li small {
+  font-family: var(--font-body); font-style: normal; font-size: .68rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--sage-ink);
+}
+.route .star { font-style: normal; font-size: .9rem; color: var(--sage-ink); padding-left: 26px; }
+.route .tag {
+  font-family: var(--font-body); font-style: normal; font-size: .68rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 4px 9px; border-radius: 999px; background: var(--paper); color: var(--rose);
+}
+.route .tag.now { background: var(--rose); color: var(--paper); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---------- sections ---------- */
+.sec { padding-block: clamp(72px, 10vw, 128px); scroll-margin-top: 66px; }
+.sec-tint { background: var(--paper-deep); }
+.sec-head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: 20px 40px; margin-bottom: clamp(32px, 4vw, 48px);
+}
+.sec-head h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.04; }
+.sec-head > p { margin: 0; max-width: 30em; color: var(--ink-soft); }
+
+/* ---------- category cards ---------- */
+.cats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: clamp(48px, 6vw, 72px); }
+@media (max-width: 860px) { .cats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+.cat {
+  position: relative; display: block; width: 100%; aspect-ratio: 3 / 4;
+  padding: 0; border: 0; border-radius: var(--radius); overflow: hidden;
+  background: var(--ph); color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+}
+.cat img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.cat:hover img { transform: scale(1.05); }
+.cat-body {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 10px;
+  padding: clamp(14px, 2vw, 20px);
+}
+.cat.has-img .cat-body { color: #fff; background: linear-gradient(to top, rgba(27, 24, 22, .6), transparent); padding-top: 60px; }
+.cat-name { display: block; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.1; }
+.cat-count { display: block; margin-top: 6px; font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.cat-arrow {
+  width: 38px; height: 38px; flex: none; border-radius: 50%;
+  display: grid; place-items: center; background: var(--paper); color: var(--ink);
+  transition: transform .3s ease;
+}
+.cat:hover .cat-arrow { transform: rotate(-45deg); }
+.cat-arrow svg { width: 16px; height: 16px; }
+
+/* ---------- gallery ---------- */
+#gallery { scroll-margin-top: 80px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.chip {
+  min-height: 42px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  font: 500 .92rem var(--font-body); cursor: pointer; transition: background-color .2s, color .2s;
+}
+.chip .n { margin-left: 6px; opacity: .55; font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.grid { columns: 2; column-gap: 10px; }
+@media (min-width: 720px)  { .grid { columns: 3; column-gap: 14px; } }
+@media (min-width: 1080px) { .grid { columns: 4; } }
+.tile { break-inside: avoid; margin: 0 0 10px; }
+@media (min-width: 720px) { .tile { margin-bottom: 14px; } }
+.tile-btn {
+  position: relative; display: block; width: 100%; padding: 0; border: 0;
+  background: var(--paper-deep); border-radius: var(--radius-sm); overflow: hidden; cursor: zoom-in;
+}
+.tile-btn img, .tile-btn video { display: block; width: 100%; height: auto; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.tile-btn:hover img, .tile-btn:hover video { transform: scale(1.03); }
+.tile-meta {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 12px 10px;
+  color: #fff; font-size: .82rem; text-align: left;
+  background: linear-gradient(to top, rgba(27, 24, 22, .55), transparent);
+  opacity: 0; transition: opacity .3s ease;
+}
+.tile-btn:hover .tile-meta, .tile-btn:focus-visible .tile-meta { opacity: 1; }
+.badge {
+  position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 9px; border-radius: 999px; background: rgba(251, 248, 244, .9); color: var(--ink);
+  font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+}
+.badge svg { width: 9px; height: 9px; }
+/* an empty slot: an unexposed frame waiting for a photo */
+.ph-frame {
+  position: relative; aspect-ratio: var(--r, 4 / 5); max-width: 100%;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 8px;
+  padding: 16px; border-radius: var(--radius-sm); background: var(--ph);
+  outline: 1px dashed rgba(46, 42, 39, .22); outline-offset: -8px;
+}
+.frame-no { font-size: .68rem; font-weight: 700; letter-spacing: .16em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.ph-shot { font-family: var(--font-display); font-style: italic; font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.25; }
+.ph-add { font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* ---------- packages ---------- */
+.packs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 820px) { .packs { grid-template-columns: 1fr; } }
+.pack {
+  display: flex; flex-direction: column; gap: 22px;
+  padding: clamp(26px, 3.6vw, 44px); border-radius: var(--radius);
+  background: var(--card); border: 1px solid var(--line);
+}
+.pack.feature { background: var(--blush); border-color: transparent; }
+.pack h3 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 2.8vw, 2.3rem); line-height: 1.05; }
+.pack .for { margin: -10px 0 0; color: var(--ink-soft); max-width: 28em; }
+.price {
+  margin: 0; font-family: var(--font-display); font-weight: 300;
+  font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1; letter-spacing: -.02em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.price small {
+  display: block; margin-top: 10px;
+  font-family: var(--font-body); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.price.ask { font-size: clamp(1.7rem, 2.6vw, 2.1rem); font-style: italic; }
+.price.ask small { display: none; }
+.incl { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.incl li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; }
+.incl li::before {
+  content: ""; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--sage) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235F6F56' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 13px no-repeat;
+}
+.pack.feature .incl li::before { background-color: var(--card); }
+.num { font-family: var(--font-display); font-weight: 500; font-size: 1.15em; }
+.pack .btn { margin-top: auto; align-self: flex-start; }
+.both {
+  display: grid; grid-template-columns: auto repeat(3, minmax(0, 1fr)); align-items: start;
+  gap: 18px 28px; margin-top: 20px; padding: 24px 28px; border-radius: var(--radius);
+  background: var(--sage);
+}
+.both .eyebrow { margin: 3px 0 0; }
+.both b { display: block; font-weight: 700; }
+.both span { display: block; font-size: .95rem; color: var(--ink-soft); }
+@media (max-width: 900px) { .both { grid-template-columns: 1fr; } }
+
+/* ---------- how it works (a real sequence, so numbered) ---------- */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 28px; }
+@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+.steps li { border-top: 1px solid var(--ink); padding-top: 18px; }
+.step-n { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 2.8rem; line-height: 1; color: var(--rose); }
+.steps h3 { margin: 14px 0 6px; font-size: 1.05rem; font-weight: 700; }
+.steps p { margin: 0; color: var(--ink-soft); font-size: .98rem; }
+
+/* ---------- about ---------- */
+.about { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: clamp(36px, 6vw, 88px); }
+@media (max-width: 820px) { .about { grid-template-columns: 1fr; } }
+.portrait {
+  width: 100%; max-width: 420px; aspect-ratio: 4 / 5; overflow: hidden;
+  border-radius: 999px 999px var(--radius) var(--radius); background: var(--ph);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+.portrait .ph-note { justify-content: center; padding-bottom: 22px; }
+.about h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.04; margin-bottom: 22px; }
+.about-copy p { margin: 0 0 1em; max-width: 36em; }
+.now-card {
+  margin: 30px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-sm); overflow: hidden;
+}
+@media (max-width: 460px) { .now-card { grid-template-columns: 1fr; } }
+.now-card div { background: var(--paper); padding: 14px 16px; }
+.now-card dt { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--sage-ink); }
+.now-card dd { margin: 4px 0 0; font-family: var(--font-display); font-size: 1.25rem; line-height: 1.2; }
+
+/* ---------- kind words ---------- */
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 20px; }
+.quotes blockquote { margin: 0; padding: 30px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); }
+.quotes p { margin: 0 0 18px; font-family: var(--font-display); font-weight: 300; font-size: 1.3rem; line-height: 1.4; }
+.quotes cite { font-style: normal; font-size: .9rem; color: var(--ink-soft); }
+.quotes cite b { color: var(--ink); }
+
+/* ---------- contact ---------- */
+.contact { background: var(--sage); }
+.contact .wrap { display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; gap: 40px 64px; }
+@media (max-width: 820px) { .contact .wrap { grid-template-columns: 1fr; } }
+.contact h2 { font-size: clamp(2.8rem, 6.4vw, 5.2rem); line-height: .98; margin-bottom: 22px; }
+.channels { display: grid; gap: 10px; }
+.channel {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 20px; border-radius: 16px; border: 1px solid transparent;
+  background: var(--paper); text-decoration: none; transition: border-color .2s;
+}
+a.channel[href]:hover { border-color: var(--ink); }
+.channel b { font-weight: 700; }
+.channel span { color: var(--ink-soft); font-size: .92rem; overflow-wrap: anywhere; text-align: right; }
+
+/* ---------- footer + mobile booking dock ---------- */
+.foot { padding-block: 28px; font-size: .85rem; color: var(--ink-soft); }
+.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+.dock {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: none;
+  padding: 18px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(to top, var(--paper) 55%, transparent);
+  transform: translateY(110%); transition: transform .35s ease;
+}
+.dock.show { transform: none; }
+.dock .btn { width: 100%; }
+@media (max-width: 720px) {
+  .dock { display: block; }
+  .foot { padding-bottom: 100px; }
+}
+
+/* ---------- lightbox ---------- */
+.lb {
+  position: fixed; inset: 0; z-index: 90;
+  display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 12px;
+  padding: calc(env(safe-area-inset-top, 0px) + 12px) 16px calc(env(safe-area-inset-bottom, 0px) + 18px);
+  background: var(--lb-bg); color: var(--lb-ink);
+}
+.lb-bar { display: flex; justify-content: space-between; align-items: center; font-size: .8rem; letter-spacing: .14em; font-variant-numeric: tabular-nums; }
+.lb-stage { display: grid; place-items: center; min-height: 0; }
+.lb-stage img, .lb-stage video { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; }
+.lb-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 900px; width: 100%; margin-inline: auto; }
+.lb-cap { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; text-align: center; flex: 1; }
+.lb-cap small { display: block; font-family: var(--font-body); font-style: normal; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; opacity: .7; margin-top: 4px; }
+.lb button {
+  width: 46px; height: 46px; flex: none; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  border: 1px solid rgba(245, 239, 232, .3); background: transparent; color: var(--lb-ink);
+}
+.lb button:hover { background: rgba(245, 239, 232, .12); }
+.lb button svg { width: 18px; height: 18px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .route { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="setup" id="setup" hidden>
+  <div class="wrap">
+    <details open>
+      <summary id="setup-sum">Site setup</summary>
+      <ul id="setup-list"></ul>
+    </details>
+  </div>
+</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#hero" data-bind="name">Amanda Marsh</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="navlink" href="#work">Work</a>
+      <a class="navlink" href="#packages">Packages</a>
+      <a class="navlink" href="#about">About</a>
+      <a class="btn btn-ink btn-sm" data-book="a shoot" href="#contact">Book a shoot</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="pill"><span class="dot" aria-hidden="true"></span><span id="status">Booking now</span></p>
+        <h1>Two months of content, shot in <em>a&nbsp;day.</em></h1>
+        <p class="lede">Photos and vertical clips of your space, your food, your rooms and your people, for cafés, villas, retreats and lifestyle brands across Southeast Asia. Delivered within 72 hours, yours to post everywhere.</p>
+        <div class="cta-row">
+          <a class="btn btn-ink" data-book="a shoot" href="#contact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5l1.3-3.9A8 8 0 1 1 8.6 19z"/></svg>
+            Message me
+          </a>
+          <a class="btn btn-line" href="#packages">See packages</a>
+        </div>
+        <p class="hero-meta" id="golden" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 18h18M7 18a5 5 0 0 1 10 0M12 6v3M5.6 9.6l2 2M18.4 9.6l-2 2"/></svg>
+          <span></span>
+        </p>
+      </div>
+      <div class="prints" id="prints" role="img" aria-label="Three recent photographs"></div>
+    </div>
+  </section>
+
+  <section class="route" aria-label="The route">
+    <div class="route-track" id="route"></div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">The work</p>
+          <h2>Your place, <em>in its best light.</em></h2>
+        </div>
+        <p>Shot on location and edited in my warm, film-look style. Pick a category, or scroll the whole roll.</p>
+      </div>
+      <div class="cats" id="cats"></div>
+      <div id="gallery">
+        <div class="chips" id="chips" role="group" aria-label="Filter the photos"></div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-tint" id="packages">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Packages</p>
+          <h2>Two ways <em>to book.</em></h2>
+        </div>
+        <p>A fixed price and a fixed list of what you get. Pick the one that fits your place.</p>
+      </div>
+      <div class="packs">
+        <article class="pack">
+          <h3>Half day</h3>
+          <p class="for">For a café, a menu launch, or one villa.</p>
+          <p class="price" data-price="halfDay"><span class="amt">—</span><small>per shoot</small></p>
+          <ul class="incl">
+            <li><span><b class="num">3</b> hours on location</span></li>
+            <li><span><b class="num">30</b> finished photos, edited in my style</span></li>
+            <li><span><b class="num">15</b> vertical clips, ready for Reels and TikTok</span></li>
+            <li><span>Full rights to post everywhere</span></li>
+          </ul>
+          <a class="btn btn-ink" data-book="the Half day package" href="#contact">Book the half day</a>
+        </article>
+        <article class="pack feature">
+          <h3>Content day</h3>
+          <p class="for">For a retreat, a hotel, or a brand that wants two months of posts in one go.</p>
+          <p class="price" data-price="contentDay"><span class="amt">—</span><small>per shoot</small></p>
+          <ul class="incl">
+            <li><span>A full day on location, sunrise to golden hour</span></li>
+            <li><span><b class="num">60</b> finished photos, edited in my style</span></li>
+            <li><span><b class="num">30</b> vertical clips<span data-reels hidden>, plus <b class="num">3</b> edited reels</span></span></li>
+            <li><span>Portraits of your team</span></li>
+            <li><span>Full rights to post everywhere</span></li>
+          </ul>
+          <a class="btn btn-ink" data-book="the Content day package" href="#contact">Book the content day</a>
+        </article>
+      </div>
+      <div class="both">
+        <p class="eyebrow">Both include</p>
+        <div><b>A shot list we build together</b><span>So the day covers exactly what you want to post.</span></div>
+        <div><b>Delivery within 72 hours</b><span>Everything in one shared folder, ready to schedule.</span></div>
+        <div><b>Full rights, everywhere</b><span>Instagram, TikTok, your website, booking pages and listings.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2>From hello to <em>a full feed.</em></h2>
+        </div>
+      </div>
+      <ol class="steps">
+        <li><span class="step-n">1</span><h3>Say hi</h3><p>Tell me about your place and what's coming up: a new menu, a villa opening, a retreat season.</p></li>
+        <li><span class="step-n">2</span><h3>Plan the shot list</h3><p>We agree on the must-have shots and the timing. Mornings for coffee, golden hour for pools.</p></li>
+        <li><span class="step-n">3</span><h3>Shoot day</h3><p>I work quietly around your guests and your team, for three hours or from sunrise to golden hour.</p></li>
+        <li><span class="step-n">4</span><h3>Delivered in 72 hours</h3><p>Photos and clips land in one folder, ready to post for the next two months.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec sec-tint" id="about">
+    <div class="wrap about">
+      <div class="portrait" id="portrait" data-cat="people"></div>
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Hi, I'm <em data-bind="first">Amanda</em>.</h2>
+        <div class="about-copy" id="about-copy"></div>
+        <dl class="now-card">
+          <div><dt>Currently in</dt><dd id="now-city">—</dd></div>
+          <div><dt>Until</dt><dd id="now-until">—</dd></div>
+          <div><dt>Next stop</dt><dd id="now-next">—</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="words" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Kind words</p>
+          <h2>From the places <em>I've shot.</em></h2>
+        </div>
+      </div>
+      <div class="quotes" id="quotes"></div>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Book a shoot</p>
+        <h2>Let's shoot <em>your space.</em></h2>
+        <p class="lede">Tell me where you are and what's coming up. I'll come back with dates and a first draft of your shot list.</p>
+      </div>
+      <div class="channels">
+        <a class="channel" data-channel="whatsapp" href="#contact"><b>WhatsApp</b><span></span></a>
+        <a class="channel" data-channel="instagram" href="#contact"><b>Instagram</b><span></span></a>
+        <a class="channel" data-channel="email" href="#contact"><b>Email</b><span></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> <span data-bind="name">Amanda Marsh</span></span>
+    <span>Shot across Southeast Asia</span>
+  </div>
+</footer>
+
+<div class="dock" id="dock"><a class="btn btn-ink" data-book="a shoot" href="#contact">Book a shoot</a></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <div class="lb-bar">
+    <span id="lb-count"></span>
+    <button type="button" id="lb-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="lb-stage" id="lb-stage"></div>
+  <div class="lb-foot">
+    <button type="button" id="lb-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <p class="lb-cap" id="lb-cap"></p>
+    <button type="button" id="lb-next" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIG: everything about you and your business lives here.
+   Change a value, save, refresh. Nothing else needs touching.
+   ===================================================================== */
+const CONFIG = {
+  name: 'Amanda Marsh',
+  instagram: '',            // your handle, without the @
+  whatsapp: '',             // full number with country code, e.g. '+62 812 3456 7890'
+  email: '',
+
+  currency: 'USD',
+  prices: {
+    halfDay: null,          // a number, e.g. 350
+    contentDay: null,       // a number, e.g. 800
+  },
+  editedReelsReady: false,  // true adds "plus 3 edited reels" to the Content day
+
+  // Where you are now. `here` must match a city in the route below.
+  here: 'Canggu',
+  hereUntil: '',            // the day you leave, as 'YYYY-MM-DD'
+
+  // The trip, in order. Cities before `here` count as done, the one after is "next".
+  // lat/lng/tz drive the golden-hour time at the top of the page.
+  route: [
+    { city: 'Canggu',     region: 'Bali',     lat: -8.65, lng: 115.13, tz: 'Asia/Makassar' },
+    { city: 'Ubud',       region: 'Bali',     lat: -8.51, lng: 115.26, tz: 'Asia/Makassar' },
+    { city: 'Da Nang',    region: 'Vietnam',  lat: 16.05, lng: 108.20, tz: 'Asia/Ho_Chi_Minh' },
+    { city: 'Hoi An',     region: 'Vietnam',  lat: 15.88, lng: 108.33, tz: 'Asia/Ho_Chi_Minh' },
+    { city: 'Chiang Mai', region: 'Thailand', lat: 18.79, lng: 98.98,  tz: 'Asia/Bangkok' },
+    { city: 'Koh Lanta',  region: 'Thailand', lat: 7.62,  lng: 99.04,  tz: 'Asia/Bangkok' },
+  ],
+
+  // About you: a draft. Rewrite it in your own words, then set aboutIsDraft: false.
+  about: [
+    "I'm a photographer with an eye for light, colour and the small details that make a place feel like itself: steam off a flat white, linen in morning sun, the pool five minutes before sunset.",
+    "I'm working my way across Southeast Asia, one city at a time, shooting cafés, villas, retreats and the people who run them. You get a library of photos and vertical clips in my warm, film-look style, delivered within 72 hours and ready to post for months.",
+  ],
+  aboutIsDraft: true,
+  portrait: '',             // e.g. 'photos/me.jpg'
+
+  // Add these as they come in: { quote: '', name: '', business: '', city: '' }
+  testimonials: [],
+
+  // Your photos and clips. Leave src empty to show a placeholder slot.
+  //   category: 'places' | 'food' | 'villas' | 'people'
+  //   src:      'photos/food/canggu-cafename-01.jpg'  (an .mp4 plays as a clip)
+  //   caption:  what's in the frame     place: where it was shot
+  //   hero:     true puts it in the three prints at the top (pick 3)
+  //   ratio:    shape of the empty slot only ('4/5', '3/4', '1/1', '3/2', '9/16')
+  photos: [
+    { category: 'food',   src: '', caption: 'Hero dish, from above',        place: '', ratio: '4/5', hero: true },
+    { category: 'villas', src: '', caption: 'Pool at golden hour',          place: '', ratio: '3/4', hero: true },
+    { category: 'people', src: '', caption: 'Owner portrait, window light', place: '', ratio: '4/5', hero: true },
+    { category: 'places', src: '', caption: 'Street at first light',        place: '', ratio: '3/2' },
+    { category: 'food',   src: '', caption: 'Clip: the coffee pour',        place: '', ratio: '9/16', clip: true },
+    { category: 'villas', src: '', caption: 'Bedroom, morning light',       place: '', ratio: '4/5' },
+    { category: 'people', src: '', caption: 'Team at work, candid',         place: '', ratio: '3/2' },
+    { category: 'places', src: '', caption: 'Rice terraces from above',     place: '', ratio: '4/5' },
+    { category: 'food',   src: '', caption: 'Table spread for four',        place: '', ratio: '3/2' },
+    { category: 'villas', src: '', caption: 'Bathroom details',             place: '', ratio: '3/4' },
+    { category: 'people', src: '', caption: 'Clip: yoga class in motion',   place: '', ratio: '9/16', clip: true },
+    { category: 'places', src: '', caption: 'Beach at golden hour',         place: '', ratio: '3/4' },
+    { category: 'food',   src: '', caption: 'Café interior, wide',          place: '', ratio: '4/5' },
+    { category: 'villas', src: '', caption: 'Clip: villa walk-through',     place: '', ratio: '9/16', clip: true },
+    { category: 'people', src: '', caption: 'A guest moment',               place: '', ratio: '4/5' },
+    { category: 'places', src: '', caption: 'Market details',               place: '', ratio: '1/1' },
+    { category: 'food',   src: '', caption: 'Hands and the menu',           place: '', ratio: '1/1' },
+    { category: 'villas', src: '', caption: 'Living space, wide',           place: '', ratio: '3/2' },
+    { category: 'people', src: '', caption: 'Chef at the pass',             place: '', ratio: '3/4' },
+    { category: 'places', src: '', caption: 'Architecture detail',          place: '', ratio: '4/5' },
+  ],
+
+  // While true: empty slots show as placeholders and a setup checklist sits at the top.
+  // Set to false when you go live; empty slots then disappear.
+  setupMode: true,
+};
+</script>
+
+<script>
+(function () {
+  'use strict';
+  var C = CONFIG;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+  var pad = function (n) { return String(n).padStart(2, '0'); };
+  var isVideo = function (src) { return /\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(src || ''); };
+  var CATS = { places: 'Places', food: 'Food & cafés', villas: 'Villas & stays', people: 'People' };
+  var first = (C.name || '').split(' ')[0] || 'there';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  var ICON_PLAY = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1l7 4-7 4z" fill="currentColor"/></svg>';
+
+  /* ---------- names ---------- */
+  $$('[data-bind="name"]').forEach(function (el) { el.textContent = C.name; });
+  $$('[data-bind="first"]').forEach(function (el) { el.textContent = first; });
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------- contact links ---------- */
+  var digits = String(C.whatsapp || '').replace(/\D/g, '');
+  var handle = String(C.instagram || '').replace(/^@/, '').trim();
+  var hello = function (what) { return 'Hi ' + first + '! I found your portfolio and I\'d love to talk about ' + what + '.'; };
+  var link = {
+    whatsapp: function (what) { return digits ? 'https://wa.me/' + digits + '?text=' + encodeURIComponent(hello(what || 'a shoot')) : ''; },
+    instagram: function () { return handle ? 'https://instagram.com/' + encodeURIComponent(handle) : ''; },
+    email: function () { return C.email ? 'mailto:' + C.email + '?subject=' + encodeURIComponent('Shoot enquiry') : ''; },
+  };
+  var setHref = function (a, href) {
+    a.href = href;
+    if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
+  };
+  $$('[data-book]').forEach(function (a) {
+    setHref(a, link.whatsapp(a.dataset.book) || link.email() || link.instagram() || '#contact');
+  });
+  var shown = { whatsapp: digits ? '+' + digits : '', instagram: handle ? '@' + handle : '', email: C.email || '' };
+  $$('[data-channel]').forEach(function (a) {
+    var ch = a.dataset.channel;
+    var href = link[ch]();
+    if (href) {
+      setHref(a, href);
+      $('span', a).textContent = shown[ch];
+    } else if (C.setupMode) {
+      a.removeAttribute('href');
+      $('span', a).textContent = 'add in CONFIG';
+    } else {
+      a.hidden = true;
+    }
+  });
+
+  /* ---------- prices ---------- */
+  var money = function (n) {
+    if (typeof n !== 'number' || !(n > 0)) return '';
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: C.currency || 'USD', maximumFractionDigits: 0 }).format(n);
+  };
+  $$('[data-price]').forEach(function (el) {
+    var v = money(C.prices && C.prices[el.dataset.price]);
+    if (v) {
+      $('.amt', el).textContent = v;
+      $('small', el).textContent = (C.currency || 'USD') + ' · per shoot';
+    } else {
+      $('.amt', el).textContent = 'Rate on request';
+      el.classList.add('ask');
+    }
+  });
+  $$('[data-reels]').forEach(function (el) { el.hidden = !C.editedReelsReady; });
+
+  /* ---------- where she is now ---------- */
+  var route = C.route || [];
+  var hereIdx = -1;
+  route.forEach(function (r, i) { if (r.city === C.here) hereIdx = i; });
+  var here = route[hereIdx] || { city: C.here || 'Southeast Asia' };
+  var next = hereIdx > -1 ? route[hereIdx + 1] : null;
+  var until = C.hereUntil ? new Date(C.hereUntil + 'T23:59:59') : null;
+  var untilOk = !!(until && !isNaN(until) && until >= new Date());
+  var dayFmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short' });
+
+  $('#status').textContent = untilOk
+    ? 'Booking in ' + here.city + ' until ' + dayFmt.format(until)
+    : (C.hereUntil ? 'Booking across Southeast Asia' : 'Booking now in ' + here.city);
+  $('#now-city').textContent = here.city + (here.region ? ', ' + here.region : '');
+  $('#now-until').textContent = untilOk ? dayFmt.format(until) : 'Open';
+  $('#now-next').textContent = next ? next.city : 'Ask me';
+
+  /* golden hour in the current city (sunset maths after suncalc, by V. Agafonkin) */
+  function sunset(date, lat, lng) {
+    var rad = Math.PI / 180, J2000 = 2451545;
+    var d = date.valueOf() / 86400000 - 0.5 + 2440588 - J2000;
+    var lw = rad * -lng, phi = rad * lat, e = rad * 23.4397;
+    var n = Math.round(d - 0.0009 - lw / (2 * Math.PI));
+    var ds = 0.0009 + lw / (2 * Math.PI) + n;
+    var M = rad * (357.5291 + 0.98560028 * ds);
+    var L = M + rad * (1.9148 * Math.sin(M) + 0.02 * Math.sin(2 * M) + 0.0003 * Math.sin(3 * M)) + rad * 102.9372 + Math.PI;
+    var dec = Math.asin(Math.sin(e) * Math.sin(L));
+    var cosW = (Math.sin(rad * -0.833) - Math.sin(phi) * Math.sin(dec)) / (Math.cos(phi) * Math.cos(dec));
+    if (cosW < -1 || cosW > 1) return null;
+    var a = 0.0009 + (Math.acos(cosW) + lw) / (2 * Math.PI) + n;
+    var J = J2000 + a + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L);
+    return new Date((J + 0.5 - 2440588) * 86400000);
+  }
+  try {
+    if (typeof here.lat === 'number' && typeof here.lng === 'number') {
+      var set = sunset(new Date(), here.lat, here.lng);
+      if (set) {
+        var t = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: here.tz || undefined });
+        var golden = $('#golden');
+        $('span', golden).textContent = 'Golden hour in ' + here.city + ' today: ' + t.format(new Date(set - 40 * 60000)) + ' to ' + t.format(set);
+        golden.hidden = false;
+      }
+    }
+  } catch (err) { /* unknown time zone: skip the line */ }
+
+  /* ---------- route marquee ---------- */
+  var stops = route.map(function (r, i) {
+    var tag = i === hereIdx ? '<span class="tag now">now</span>' : (i === hereIdx + 1 ? '<span class="tag">next</span>' : '');
+    return '<li>' + esc(r.city) + ' <small>' + esc(r.region || '') + '</small>' + tag + '<span class="star" aria-hidden="true">✦</span></li>';
+  }).join('');
+  $('#route').innerHTML = '<ul>' + stops + stops + '</ul><ul aria-hidden="true">' + stops + stops + '</ul>';
+
+  /* ---------- photos ---------- */
+  var photos = (C.photos || []).map(function (p, i) {
+    return Object.assign({}, p, { n: i + 1, video: isVideo(p.src) });
+  }).filter(function (p) { return p.src || C.setupMode; });
+
+  function media(p, eager) {
+    var alt = esc(p.caption || CATS[p.category] || 'Photo');
+    if (p.video) {
+      return '<video src="' + esc(p.src) + '"' + (p.poster ? ' poster="' + esc(p.poster) + '"' : '') +
+        ' muted loop playsinline autoplay preload="metadata" aria-label="' + alt + '"></video>';
+    }
+    return '<img src="' + esc(p.src) + '" alt="' + alt + '"' + (eager ? '' : ' loading="lazy"') + ' decoding="async">';
+  }
+
+  /* hero prints */
+  var heroes = photos.filter(function (p) { return p.hero && p.src; });
+  photos.forEach(function (p) { if (heroes.length < 3 && p.src && heroes.indexOf(p) < 0) heroes.push(p); });
+  photos.forEach(function (p) { if (heroes.length < 3 && p.hero && heroes.indexOf(p) < 0) heroes.push(p); });
+  photos.forEach(function (p) { if (heroes.length < 3 && heroes.indexOf(p) < 0) heroes.push(p); });
+  $('#prints').innerHTML = heroes.slice(0, 3).map(function (p) {
+    var inner = p.src ? media(p, true) : (C.setupMode ? '<div class="ph-note">' + esc(p.caption) + '</div>' : '');
+    return '<figure class="print" data-cat="' + esc(p.category) + '"><div class="media">' + inner + '</div>' +
+      '<figcaption>' + esc(p.place || here.city) + '</figcaption></figure>';
+  }).join('');
+
+  /* category cards */
+  var cats = Object.keys(CATS).filter(function (c) {
+    return photos.some(function (p) { return p.category === c; });
+  });
+  $('#cats').innerHTML = cats.map(function (c) {
+    var inCat = photos.filter(function (p) { return p.category === c; });
+    var real = inCat.filter(function (p) { return p.src; });
+    var cover = real.filter(function (p) { return p.cover && !p.video; })[0] || real.filter(function (p) { return !p.video; })[0];
+    var count = real.length ? real.length + (real.length === 1 ? ' frame' : ' frames') : 'Coming soon';
+    return '<button type="button" class="cat' + (cover ? ' has-img' : '') + '" data-cat="' + c + '">' +
+      (cover ? '<img src="' + esc(cover.src) + '" alt="" loading="lazy" decoding="async">' : '') +
+      '<span class="cat-body"><span><span class="cat-name">' + CATS[c] + '</span><span class="cat-count">' + count + '</span></span>' +
+      '<span class="cat-arrow">' + ICON_ARROW + '</span></span></button>';
+  }).join('');
+
+  /* filter chips */
+  $('#chips').innerHTML = ['all'].concat(cats).map(function (c) {
+    var n = c === 'all' ? photos.length : photos.filter(function (p) { return p.category === c; }).length;
+    return '<button type="button" class="chip" data-filter="' + c + '" aria-pressed="' + (c === 'all') + '">' +
+      (c === 'all' ? 'All' : CATS[c]) + '<span class="n">' + n + '</span></button>';
+  }).join('');
+
+  /* the grid */
+  $('#grid').innerHTML = photos.map(function (p) {
+    var no = '<span class="frame-no">' + pad(p.n) + (p.clip || p.video ? ' · CLIP 9:16' : '') + '</span>';
+    if (!p.src) {
+      return '<figure class="tile" data-cat="' + esc(p.category) + '">' +
+        '<div class="ph-frame" style="--r:' + esc(String(p.ratio || '4/5').replace('/', ' / ')) + '">' + no +
+        '<span class="ph-shot">' + esc(p.caption) + '</span><span class="ph-add">Photo to add</span></div></figure>';
+    }
+    var meta = [p.caption, p.place].filter(Boolean).map(esc).join(' · ');
+    return '<figure class="tile" data-cat="' + esc(p.category) + '">' +
+      '<button type="button" class="tile-btn" data-n="' + p.n + '" aria-label="Open ' + esc(p.caption || 'photo') + '">' +
+      media(p) + (p.video ? '<span class="badge">' + ICON_PLAY + 'Clip</span>' : '') +
+      (meta ? '<span class="tile-meta">' + meta + '</span>' : '') + '</button></figure>';
+  }).join('');
+
+  var filter = 'all';
+  function setFilter(c) {
+    filter = c;
+    $$('.chip').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.filter === c)); });
+    $$('#grid .tile').forEach(function (t) { t.hidden = c !== 'all' && t.dataset.cat !== c; });
+  }
+  $('#chips').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip');
+    if (b) setFilter(b.dataset.filter);
+  });
+  $('#cats').addEventListener('click', function (e) {
+    var b = e.target.closest('.cat');
+    if (!b) return;
+    setFilter(b.dataset.cat);
+    $('#gallery').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  });
+
+  /* clips play only while on screen */
+  if ('IntersectionObserver' in window) {
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { var pr = en.target.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else en.target.pause();
+      });
+    }, { threshold: 0.25 });
+    $$('.tile video, .print video').forEach(function (v) { v.muted = true; vio.observe(v); });
+  }
+
+  /* ---------- lightbox ---------- */
+  var lb = $('#lb'), stage = $('#lb-stage'), list = [], at = 0, lastFocus = null;
+  function showLb() {
+    var p = list[at];
+    stage.innerHTML = p.video
+      ? '<video src="' + esc(p.src) + '" muted loop playsinline autoplay controls></video>'
+      : '<img src="' + esc(p.src) + '" alt="' + esc(p.caption || '') + '">';
+    $('#lb-cap').innerHTML = esc(p.caption || '') + (p.place ? '<small>' + esc(p.place) + '</small>' : '');
+    $('#lb-count').textContent = pad(at + 1) + ' / ' + pad(list.length);
+    $('#lb-prev').hidden = $('#lb-next').hidden = list.length < 2;
+  }
+  function openLb(n) {
+    list = photos.filter(function (p) { return p.src && (filter === 'all' || p.category === filter); });
+    at = Math.max(0, list.findIndex(function (p) { return p.n === n; }));
+    lastFocus = document.activeElement;
+    showLb();
+    lb.hidden = false;
+    document.documentElement.classList.add('lock');
+    $('#lb-close').focus();
+  }
+  function closeLb() {
+    lb.hidden = true;
+    stage.innerHTML = '';
+    document.documentElement.classList.remove('lock');
+    if (lastFocus) lastFocus.focus();
+  }
+  function step(d) { at = (at + d + list.length) % list.length; showLb(); }
+  $('#grid').addEventListener('click', function (e) {
+    var b = e.target.closest('.tile-btn');
+    if (b) openLb(Number(b.dataset.n));
+  });
+  $('#lb-close').addEventListener('click', closeLb);
+  $('#lb-prev').addEventListener('click', function () { step(-1); });
+  $('#lb-next').addEventListener('click', function () { step(1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target === stage) closeLb(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLb();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
+    else if (e.key === 'Tab') {
+      var f = $$('button:not([hidden])', lb), i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+  var touchX = null;
+  lb.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50 && list.length > 1) step(dx < 0 ? 1 : -1);
+    touchX = null;
+  });
+
+  /* ---------- about + kind words ---------- */
+  $('#about-copy').innerHTML = (C.about || []).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+  $('#portrait').innerHTML = C.portrait
+    ? '<img src="' + esc(C.portrait) + '" alt="' + esc(C.name) + '" loading="lazy">'
+    : (C.setupMode ? '<div class="ph-note">Your portrait</div>' : '');
+  var quotes = (C.testimonials || []).filter(function (q) { return q && q.quote; });
+  if (quotes.length) {
+    $('#quotes').innerHTML = quotes.map(function (q) {
+      return '<blockquote><p>“' + esc(q.quote) + '”</p><cite><b>' + esc(q.name) + '</b>' +
+        [q.business, q.city].filter(Boolean).map(function (s) { return ' · ' + esc(s); }).join('') + '</cite></blockquote>';
+    }).join('');
+    $('#words').hidden = false;
+  }
+
+  /* ---------- header border + mobile booking dock ---------- */
+  var top = $('#top');
+  var onScroll = function () { top.classList.toggle('scrolled', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  if ('IntersectionObserver' in window) {
+    var dock = $('#dock');
+    var contact = $('#contact');
+    var state = { hero: true, contact: false };
+    var dio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { state[en.target === contact ? 'contact' : 'hero'] = en.isIntersecting; });
+      dock.classList.toggle('show', !state.hero && !state.contact);
+    });
+    dio.observe($('#hero'));
+    dio.observe(contact);
+  }
+
+  /* ---------- setup checklist ---------- */
+  if (C.setupMode) {
+    var all = C.photos || [];
+    var filled = all.filter(function (p) { return p.src; }).length;
+    var items = [
+      ['WhatsApp number', !!digits],
+      ['Instagram handle', !!handle],
+      ['Email', !!C.email],
+      ['Half day price', !!money(C.prices && C.prices.halfDay)],
+      ['Content day price', !!money(C.prices && C.prices.contentDay)],
+      ['Leave date for ' + here.city, untilOk],
+      ['Your portrait', !!C.portrait],
+      ['Photos: ' + filled + ' of ' + all.length, all.length > 0 && filled === all.length],
+      ['About, in your own words', !C.aboutIsDraft],
+    ];
+    var done = items.filter(function (i) { return i[1]; }).length;
+    $('#setup-sum').innerHTML = 'Site setup: ' + done + ' of ' + items.length + ' done ' +
+      '<span>· ' + (done === items.length ? 'all set. Change setupMode to false to go live.' : 'edit the CONFIG block in index.html') + '</span>';
+    $('#setup-list').innerHTML = items.map(function (i) {
+      return '<li' + (i[1] ? ' class="done"' : '') + '>' + esc(i[0]) + '</li>';
+    }).join('');
+    $('#setup').hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
