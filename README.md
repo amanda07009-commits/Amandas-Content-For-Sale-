@@ -29,7 +29,7 @@ All colours and fonts are in the **BRAND TOKENS** block at the top of the `<styl
 
 Recommended: **Cloudflare Pages** (free, fast across Asia, works with a private repo, redeploys automatically every time this repo changes).
 
-1. Buy the domain (e.g. `tigerstudios.studio`) at Cloudflare Registrar, about $10–12 a year.
+1. Buy the domain at Cloudflare Registrar: a `.com` is about $10–12 a year; endings like `.studio` usually cost more.
 2. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git → pick this repo.
    Build command: none. Output directory: `/`.
 3. In the new project → Custom domains → add your domain. Cloudflare sets up the DNS and HTTPS for you.
